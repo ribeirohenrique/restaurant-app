@@ -1,5 +1,6 @@
 package com.restaurant.restaurantapp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,12 +18,10 @@ public class ItemCardapio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nome;
     private String descricao;
     private double preco;
-
+    @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "cardapio_id")
     private Cardapio cardapio;
 }

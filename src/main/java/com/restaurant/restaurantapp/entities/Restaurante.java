@@ -23,7 +23,6 @@ public class Restaurante {
 
     @Column(unique = true)
     private String nome;
-    private String endereco;
 
     @Column(unique = true)
     private String telefone;
@@ -33,6 +32,10 @@ public class Restaurante {
     private List<Pedido> pedidos;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "restaurante")
-    private List<Cardapio> cardapios;
+    @OneToOne(mappedBy = "restaurante")
+    private Cardapio cardapio;
+
+    @JsonIgnore
+    @OneToOne
+    private EnderecoRestaurante enderecoRestaurante;
 }

@@ -19,14 +19,10 @@ public class Pagamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Temporal(TemporalType.TIMESTAMP)
     private Date data;
-
     private String tipoPagamento;
     private double valor;
-
     @OneToOne
-    @JoinColumn(name = "pedido_id")
     private Pedido pedido;
 }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/pedidos", produces = "application/json", consumes = "application/json")
-public class CardapioResource {
+public class PedidoResource {
 
     @Autowired
     private PedidoService pedidoService;

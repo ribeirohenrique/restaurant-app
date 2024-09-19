@@ -22,10 +22,8 @@ public class Cardapio {
 
     @Column(unique = true)
     private String nome;
-    private boolean ativo;
 
-    @ManyToOne
-    @JoinColumn(name = "restaurante_id")
+    @OneToOne
     private Restaurante restaurante;
 
     @OneToMany(mappedBy = "cardapio")
