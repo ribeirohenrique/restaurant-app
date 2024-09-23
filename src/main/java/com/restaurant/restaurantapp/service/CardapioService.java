@@ -1,7 +1,8 @@
 package com.restaurant.restaurantapp.service;
 
-import com.restaurant.restaurantapp.entities.EnderecoRestaurante;
+import com.restaurant.restaurantapp.entities.Cardapio;
 import com.restaurant.restaurantapp.entities.ItemCardapio;
+import com.restaurant.restaurantapp.repository.CardapioRepository;
 import com.restaurant.restaurantapp.repository.ItemCardapioRepository;
 import com.restaurant.restaurantapp.service.exceptions.ResourceDuplicatedException;
 import com.restaurant.restaurantapp.service.exceptions.ResourceNotFoundException;
@@ -12,24 +13,24 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class ItemCardapioService {
+public class CardapioService {
 
     @Autowired
-    private ItemCardapioRepository itemCardapioRepository;
+    private CardapioRepository cardapioRepository;
 
     //Procurar por Id
-    public ItemCardapio findById(Long id) {
-        Optional<ItemCardapio> itemCardapio = itemCardapioRepository.findById(id);
-        return itemCardapio.orElseThrow(() -> new ResourceNotFoundException(id));
+    public Cardapio findById(Long id) {
+        Optional<Cardapio> cardapio = cardapioRepository.findById(id);
+        return cardapio.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
     //Criar
-    public ItemCardapio insert(ItemCardapio itemCardapio) {
+    public Cardapio insert(Cardapio cardapio) {
         try {
-            itemCardapioRepository.save(itemCardapio);
-            return itemCardapio;
+            cardapioRepository.save(cardapio);
+            return cardapio;
         } catch (DataIntegrityViolationException e) {
-            throw new ResourceDuplicatedException(itemCardapio.getId());
+            throw new ResourceDuplicatedException(cardapio.getId());
         }
     }
 }
