@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulário de Cardápio</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${cardapio.id != null ? 'Editar Cardápio' : 'Novo Cardápio'}"></h1>
+    <form method="post" th:action="@{/cardapios}" th:object="${cardapio}">
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input class="form-control" id="nome" name="nome" required th:value="${cardapio.nome}" type="text">
+        </div>
+        <button class="btn btn-primary mt-3" type="submit">Salvar</button>
+    </form>
+</div>
+</body>
+</html>

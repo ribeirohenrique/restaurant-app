@@ -1,4 +1,4 @@
-package com.restaurant.restaurantapp.resources.exceptions;
+package com.restaurant.restaurantapp.controller.exceptions;
 
 import com.restaurant.restaurantapp.service.exceptions.AccountBalanceException;
 import com.restaurant.restaurantapp.service.exceptions.AccountLimitException;

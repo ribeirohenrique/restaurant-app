@@ -16,11 +16,19 @@ public class PedidoDto {
     private final Date data;
     private final String status;
     private final double total;
+    private Cliente cliente;
+    private List<ItemCardapio> itens;
+    private Pagamento pagamento;
+    private Restaurante restaurante;
 
     public PedidoDto(Pedido pedido) {
         this.id = pedido.getId();
         this.data = pedido.getData();
         this.status = pedido.getStatus();
         this.total = pedido.getTotal();
+        this.cliente = pedido.getCliente();
+        this.itens = pedido.getItens();
+        this.pagamento = pedido.getPagamento();
+        this.restaurante = pedido.getRestaurante();
     }
 }

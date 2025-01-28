@@ -17,11 +17,13 @@ public class PagamentoDto {
     private final Date data;
     private final String tipoPagamento;
     private final double valor;
+    private final Pedido pedido;
 
     public PagamentoDto(Pagamento pagamento) {
         this.id = pagamento.getId();
         this.data = pagamento.getData();
         this.tipoPagamento = pagamento.getTipoPagamento();
         this.valor = pagamento.getValor();
+        this.pedido = pagamento.getPedido();
     }
 }

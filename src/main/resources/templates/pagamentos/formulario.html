@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulário de Pagamento</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${pagamento.id != null ? 'Editar Pagamento' : 'Novo Pagamento'}"></h1>
+    <form method="post" th:action="@{/pagamentos}" th:object="${pagamento}">
+        <div class="form-group">
+            <label for="valor">Valor</label>
+            <input class="form-control" id="valor" name="valor" required th:value="${pagamento.valor}" type="number">
+        </div>
+        <div class="form-group">
+            <label for="status">Status</label>
+            <input class="form-control" id="status" name="status" required th:value="${pagamento.status}" type="text">
+        </div>
+        <button class="btn btn-primary mt-3" type="submit">Salvar</button>
+    </form>
+</div>
+</body>
+</html>

@@ -2,7 +2,7 @@ package com.restaurant.restaurantapp.entities.dtos;
 
 
 import com.restaurant.restaurantapp.entities.EnderecoRestaurante;
-import com.restaurant.restaurantapp.entities.ItemCardapio;
+import com.restaurant.restaurantapp.entities.Restaurante;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,6 +17,7 @@ public class EnderecoRestauranteDto {
     private String cep;
     private String bairro;
     private String cidade;
+    private Restaurante restaurante;
 
     public EnderecoRestauranteDto(EnderecoRestaurante enderecoRestaurante) {
         this.id = enderecoRestaurante.getId();
@@ -25,5 +26,6 @@ public class EnderecoRestauranteDto {
         this.cep = enderecoRestaurante.getCep();
         this.bairro = enderecoRestaurante.getBairro();
         this.cidade = enderecoRestaurante.getCidade();
+        this.restaurante = enderecoRestaurante.getRestaurante();
     }
 }

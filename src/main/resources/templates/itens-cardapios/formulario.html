@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de Item do Cardápio</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 th:text="${itemCardapio.id != null} ? 'Editar Item' : 'Novo Item'"></h2>
+    <form method="post"
+          th:action="@{${itemCardapio.id != null} ? '/itens-cardapios/' + ${itemCardapio.id} : '/itens-cardapios'}"
+          th:object="${itemCardapio}">
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input class="form-control" id="nome" name="nome" required th:value="*{nome}" type="text">
+        </div>
+        <div class="form-group">
+            <label for="descricao">Descrição</label>
+            <textarea class="form-control" id="descricao" name="descricao" required th:value="*{descricao}"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="preco">Preço</label>
+            <input class="form-control" id="preco" name="preco" required th:value="*{preco}" type="number">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success" type="submit">Salvar</button>
+            <a class="btn btn-secondary" href="/itens-cardapios">Cancelar</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

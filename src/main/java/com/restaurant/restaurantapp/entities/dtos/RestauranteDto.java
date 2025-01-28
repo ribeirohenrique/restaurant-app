@@ -17,13 +17,18 @@ public class RestauranteDto {
 
     private final Long id;
     private final String nome;
-    private final EnderecoRestaurante endereco;
     private final String telefone;
+    private final EnderecoRestaurante enderecoRestaurante;
+    private List<Pedido> pedidos;
+    private Cardapio cardapio;
+
 
     public RestauranteDto(Restaurante restaurante) {
         this.id = restaurante.getId();
         this.nome = restaurante.getNome();
-        this.endereco = restaurante.getEnderecoRestaurante();
         this.telefone = restaurante.getTelefone();
+        this.pedidos = restaurante.getPedidos();
+        this.cardapio = restaurante.getCardapio();
+        this.enderecoRestaurante = restaurante.getEnderecoRestaurante();
     }
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Restaurantes</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Restaurantes</h1>
+    <a class="btn btn-primary mb-3" href="/restaurantes/novo">Adicionar Novo Restaurante</a>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="restaurante : ${restaurantes}">
+            <td th:text="${restaurante.id}">1</td>
+            <td th:text="${restaurante.nome}">Nome do Restaurante</td>
+            <td th:text="${restaurante.endereco}">Endereço</td>
+            <td>
+                <a class="btn btn-info" th:href="@{/restaurantes/{id}(id=${restaurante.id})}">Detalhes</a>
+                <a class="btn btn-warning" th:href="@{/restaurantes/editar/{id}(id=${restaurante.id})}">Editar</a>
+                <a class="btn btn-danger" th:href="@{/restaurantes/deletar/{id}(id=${restaurante.id})}">Deletar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

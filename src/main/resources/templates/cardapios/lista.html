@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Cardápios</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Cardápios</h1>
+    <a class="btn btn-primary mb-3" href="/cardapios/novo">Adicionar Novo Cardápio</a>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="cardapio : ${cardapios}">
+            <td th:text="${cardapio.id}">1</td>
+            <td th:text="${cardapio.nome}">Nome do Cardápio</td>
+            <td>
+                <a class="btn btn-info" th:href="@{/cardapios/{id}(id=${cardapio.id})}">Detalhes</a>
+                <a class="btn btn-warning" th:href="@{/cardapios/editar/{id}(id=${cardapio.id})}">Editar</a>
+                <a class="btn btn-danger" th:href="@{/cardapios/deletar/{id}(id=${cardapio.id})}">Deletar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

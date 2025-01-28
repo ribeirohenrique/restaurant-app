@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detalhes do Cardápio</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Detalhes do Cardápio</h1>
+    <p><strong>ID:</strong> <span th:text="${cardapio.id}">1</span></p>
+    <p><strong>Nome:</strong> <span th:text="${cardapio.nome}">Nome do Cardápio</span></p>
+    <a class="btn btn-secondary" href="/cardapios">Voltar</a>
+</div>
+</body>
+</html>

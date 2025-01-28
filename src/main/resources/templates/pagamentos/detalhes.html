@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detalhes do Pagamento</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Detalhes do Pagamento</h1>
+    <p><strong>ID:</strong> <span th:text="${pagamento.id}">1</span></p>
+    <p><strong>Valor:</strong> <span th:text="${pagamento.valor}">100.00</span></p>
+    <p><strong>Status:</strong> <span th:text="${pagamento.status}">PAGO</span></p>
+    <a class="btn btn-secondary" href="/pagamentos">Voltar</a>
+</div>
+</body>
+</html>

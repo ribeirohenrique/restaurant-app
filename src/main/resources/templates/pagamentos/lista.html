@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Pagamentos</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Pagamentos</h1>
+    <a class="btn btn-primary mb-3" href="/pagamentos/novo">Adicionar Novo Pagamento</a>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Valor</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="pagamento : ${pagamentos}">
+            <td th:text="${pagamento.id}">1</td>
+            <td th:text="${pagamento.valor}">100.00</td>
+            <td th:text="${pagamento.status}">PAGO</td>
+            <td>
+                <a class="btn btn-info" th:href="@{/pagamentos/{id}(id=${pagamento.id})}">Detalhes</a>
+                <a class="btn btn-warning" th:href="@{/pagamentos/editar/{id}(id=${pagamento.id})}">Editar</a>
+                <a class="btn btn-danger" th:href="@{/pagamentos/deletar/{id}(id=${pagamento.id})}">Deletar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
